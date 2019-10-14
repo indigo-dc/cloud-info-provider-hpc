@@ -1,5 +1,6 @@
 "provider_id": "PSNC",
 "type": "compute",
 "sitename": "QCG",
-"hostname": "http://qcg.lambda.ara.app.test.k8s.apps.psnc.pl/api",
+"hostname": "qcg.lambda.ara.app.test.k8s.apps.psnc.pl",
+"endpoint": "http://qcg.lambda.ara.app.test.k8s.apps.psnc.pl/api",
 "service_type": "eu.deep.qcg",
