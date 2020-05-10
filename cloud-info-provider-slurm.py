@@ -3,6 +3,7 @@
 import subprocess
 import logging
 import sys
+import datetime
 
 def get_output_from_subprocess(command):
     """
@@ -16,6 +17,16 @@ def get_output_from_subprocess(command):
     else:
         logging.error("Unable to execute external shell command: %s" % command)
         sys.exit(1)
+
+def format_datetime():
+    """
+        Format current datetime
+    """
+    now = datetime.datetime.now()
+    output = '  "timestamp": "'
+    output += now.strftime("%Y%m%d %H%M%S")
+    output += '",\n'
+    return output
 
 def get_header():
     """
@@ -84,7 +95,7 @@ def format_slurm_info(partitions, nodes):
     """
         Format slurm info to JSON format
     """
-    return '{\n' + get_header() + format_partitions(partitions) + format_nodes(nodes) + '}'
+    return '{\n' + get_header() + format_datetime() + format_partitions(partitions) + format_nodes(nodes) + '}'
 
 def main():
     """
